@@ -44,7 +44,7 @@ export async function PATCH(req, res){
 
 // DELETE Request
 export async function DELETE(req, res){
-    let cookie = req.cookies.get('Cookie_1')
+    let cookie = req.cookies.get('Cookie_2')
 
     return NextResponse.json({status: 'success', msg: 'This is DELETE Request', data: cookie})
 };
