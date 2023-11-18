@@ -19,18 +19,18 @@ export async function GET (req, res) {
       });
 
      // Email Prepare
-     let emailInfo = {
+     const emailInfo = {
         from: " 'Hello, User! <responser@gmail.com>' ", // sender address
         to: emailTo, // list of receivers
-        subject: 'Test Email', // Subject line
+        subject: 'Email from NextJS Application', // Subject line
         text: 'Hello, This is a test email from next js App', // plain text body
         // html: data.htm, // html body
       };
 
     //   Email Sending 
       try {
-        await transporter.sendMail(emailInfo) 
-        return NextResponse.json({msg: 'Email Sending Success'}) 
+        const result = await transporter.sendMail(emailInfo) 
+        return NextResponse.json({msg: 'Email Sending Success', data:result}) 
       } catch (error) {
         return NextResponse.json({msg: 'Email Sending Fail'}) 
       }
